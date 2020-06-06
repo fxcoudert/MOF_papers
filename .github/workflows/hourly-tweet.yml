@@ -1,7 +1,7 @@
 name: Hourly tweet
 on:
   schedule:
-    - cron:  '41 * * * *'
+    - cron:  '05 * * * *'
 jobs:
   daily_update:
     runs-on: ubuntu-latest
@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip setuptools wheel
-          pip install bs4 feedparser tweepy
+          pip install bs4 feedparser tweepy pyyaml
       - name: Display directory structure
         run: |
           ls -la
