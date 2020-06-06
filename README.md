@@ -1,0 +1,2 @@
+- This repository allows the [@MOF_papers](https://twitter.com/MOF_papers) Twitter bot to run regularly and post new papers, through Github Actions.
+- The main code is in the [PapersBot](https://github.com/fxcoudert/PapersBot) repository.
