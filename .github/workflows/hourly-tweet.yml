@@ -36,5 +36,4 @@ jobs:
         run: |
           git config --global user.name 'Hourly tweeting script'
           git config --global user.email 'fxcoudert@users.noreply.github.com'
-          git commit posted.dat -m 'Papers were posted'
-          git push
+          git diff --quiet --exit-code posted.dat || (git commit posted.dat -m 'Papers were posted' && git push)
