@@ -1,7 +1,7 @@
 name: Hourly tweet
 on:
   schedule:
-    - cron:  '31 * * * *'
+    - cron:  '41 * * * *'
 jobs:
   daily_update:
     runs-on: ubuntu-latest
@@ -11,6 +11,9 @@ jobs:
         with:
           repository: 'fxcoudert/PapersBot'
           path: 'PapersBot'
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
       - name: Check python version
         run: python -V
       - name: Install dependencies
