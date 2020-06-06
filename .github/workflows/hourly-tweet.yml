@@ -1,7 +1,7 @@
 name: Hourly tweet
 on:
   schedule:
-    - cron:  '55 * * * *'
+    - cron:  '12 * * * *'
 jobs:
   daily_update:
     runs-on: ubuntu-latest
@@ -11,15 +11,23 @@ jobs:
         with:
           repository: 'fxcoudert/PapersBot'
           path: 'PapersBot'
-      - name: Configure git
-        run: |
-          git config --global user.name 'Daily update script'
-          git config --global user.email 'fxcoudert@users.noreply.github.com'
       - name: Check python version
-        env:
-          PYTHONUNBUFFERED: 1
         run: python3 -V
       - name: Display directory structure
         run: |
           ls -la
           ls -la PapersBot
+      - name: Run PapersBot
+        env:
+          PYTHONUNBUFFERED: 1
+          CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+          CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
+          ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+          ACCESS_SECRET: ${{ secrets.ACCESS_SECRET }}
+        run: python3 ./PapersBot/papersbot.py
+      - name: Commit changes to posted list
+        run: |
+          git config --global user.name 'Hourly tweeting script'
+          git config --global user.email 'fxcoudert@users.noreply.github.com'
+          git commit posted.dat -m 'Papers were posted'
+          git push
