@@ -31,6 +31,11 @@ jobs:
           CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
           ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
           ACCESS_SECRET: ${{ secrets.ACCESS_SECRET }}
+          MASTODON_API_BASE_URL: ${{ secrets.MASTODON_API_BASE_URL }}
+          MASTODON_CLIENT_ID: ${{ secrets.MASTODON_CLIENT_ID }}
+          MASTODON_CLIENT_SECRET: ${{ secrets.MASTODON_CLIENT_SECRET }}
+          MASTODON_USER: ${{ secrets.MASTODON_USER }}
+          MASTODON_PASSWORD: ${{ secrets.MASTODON_PASSWORD }}
         run: python3 ./PapersBot/papersbot.py
       - name: Commit changes to posted list
         run: |
