@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip setuptools wheel
-          pip install beautifulsoup4 feedparser tweepy pyyaml
+          pip install beautifulsoup4 feedparser tweepy pyyaml Mastodon.py
       - name: Display directory structure
         run: |
           ls -la
