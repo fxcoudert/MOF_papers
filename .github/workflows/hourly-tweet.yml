@@ -1,9 +1,9 @@
-name: Hourly tweet
+name: Hourly update
 on:
   schedule:
     - cron:  '05 * * * *'
 jobs:
-  daily_update:
+  hourly_update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
