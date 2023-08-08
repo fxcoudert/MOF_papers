@@ -38,6 +38,7 @@ jobs:
           MASTODON_PASSWORD: ${{ secrets.MASTODON_PASSWORD }}
         run: python3 ./PapersBot/papersbot.py
       - name: Commit changes to posted list
+        if: ${{ always() }}
         run: |
           git config --global user.name 'Hourly tweeting script'
           git config --global user.email 'fxcoudert@users.noreply.github.com'
