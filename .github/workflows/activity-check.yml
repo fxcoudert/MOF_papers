@@ -1,0 +1,30 @@
+name: Activity check
+on:
+  schedule:
+    - cron:  '20 */2 * * *'
+jobs:
+  hourly_update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: 'fxcoudert/PapersBot'
+          path: 'PapersBot'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Check python version
+        run: python3 -V
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip setuptools wheel
+          python3 -m pip install -r requirements.txt
+      - name: Display directory structure
+        run: |
+          ls -la
+          ls -la PapersBot
+      - name: Run activity checker
+        env:
+          PYTHONUNBUFFERED: 1
+        run: python3 ./PapersBot/check_activity.py .

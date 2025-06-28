@@ -1,6 +1,7 @@
 atproto
 beautifulsoup4
 feedparser
+GitPython
 filetype
 Mastodon.py
 pyyaml
