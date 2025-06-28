@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip setuptools wheel
-          python3 -m pip install -r requirements.txt
+          python3 -m pip install -r ./PapersBot/requirements.txt
       - name: Display directory structure
         run: |
           ls -la
