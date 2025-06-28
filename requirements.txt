@@ -1,0 +1,7 @@
+atproto
+beautifulsoup4
+feedparser
+filetype
+Mastodon.py
+pyyaml
+tweepy
